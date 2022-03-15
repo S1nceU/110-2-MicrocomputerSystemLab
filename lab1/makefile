@@ -1,4 +1,4 @@
-CXX = aarch64-linux-gnu-g++
+CXX = aarch64-linux-gnu-g++  #TX-2 complier 
 CXXFLAGS =-std=c++11
 HEADER = circular_sector.h ellipse.h sort.h triangle.h
 OBJ = circular_sector.o ellipse.o sort.o triangle.o
