@@ -1,16 +1,15 @@
+.PHONY = clean all
 CXX = aarch64-linux-gnu-g++  #TX-2 complier 
+CXXFLAGS =-std=c++11
 OBJ = main.o
 SRC = main.cpp
 EXE = lab2
-all: clean $(OBJ)
-		$(CXX) $(OBJ) main.cpp -o $(EXE)
+all: $(SRC)
+		$(CXX) -o $(EXE) $^
 
 %.o:%.c
 		$(CXX) -c $< -o $@
 
 clean:
-		rm -f $(EXE)
-		rm -f *.o
-
-
-
+		rm -rf $(EXE)
+		rm -rf *.o

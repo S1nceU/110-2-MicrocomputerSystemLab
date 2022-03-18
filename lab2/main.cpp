@@ -5,10 +5,10 @@
 #include <unistd.h>
 using namespace std;
 
-#define led1 393
-#define led2 389
-#define led3 398
-#define led4 427
+#define LED1 393
+#define LED2 389
+#define LED3 398
+#define LED4 427
 
 int gpio_export(unsigned int pin){
     fstream gpio;
@@ -53,7 +53,7 @@ int gpio_set_dir(unsigned int pin,unsigned dir){
 }
 
 int gpio_set_value(unsigned int pin,unsigned value){
-    string filename = "/sys/class/gpio/gpio" + to_string(pin) + "/direction";
+    string filename = "/sys/class/gpio/gpio" + to_string(pin) + "/value";
     fstream gpio;
     gpio.open(filename,ios::out);
     if(!gpio.is_open()){
@@ -68,7 +68,7 @@ int gpio_set_value(unsigned int pin,unsigned value){
 
 
 int main(int argc,char *argv[]){
-    unsigned int arr[4] = {led1,led2,led3,led4};
+    unsigned int arr[4] = {LED1,LED2,LED3,LED4};
     if(argc != 3){
         cout << "Input Fail!" << endl;
         return 1;
@@ -83,27 +83,29 @@ int main(int argc,char *argv[]){
             unsigned int value = 1;
             for(int i = 0;i < stoi(argv[2]);i++){
                 cout << value << " " << endl;
-                gpio_set_value(led1,value);
-                gpio_set_value(led2,value);
-                gpio_set_value(led3,!value);
-                gpio_set_value(led4,!value);
+                gpio_set_value(LED1,value);
+                gpio_set_value(LED2,value);
+                gpio_set_value(LED3,!value);
+                gpio_set_value(LED4,!value);
                 value = !value;
                 sleep(1);
             }
         }
-        else if (mode.substr(0.3) == "LED"){
+        else if (mode.substr(0,3) == "LED"){
             unsigned int value;
-            if(std::string(argv[2] == "on"){
+            if(std::string(argv[2]) == "on"){
                 value = 1;
             }
             else{
                 value = 0;
             }
             cout << value << " " << int(mode.at(3)-'1') << endl;
-            gpio_set_value(arr[int(mode.at(3)-'1'],val);
+            gpio_set_value(arr[int(mode.at(3)-'1')],value);
         }
+        else{
+            cout << "no function!" << endl;
+        }
+
     }
-
-
     return 0;
 }
