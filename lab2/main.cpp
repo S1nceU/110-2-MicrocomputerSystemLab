@@ -99,7 +99,7 @@ int main(int argc,char *argv[]){
             else{
                 value = 0;
             }
-            cout << value << " " << int(mode.at(3)-'1') << endl;
+            cout << "LED" << int(mode.at(3)-'1') << "is" << value << endl;
             gpio_set_value(arr[int(mode.at(3)-'1')],value);
         }
         else{
