@@ -90,16 +90,24 @@ int main(int argc,char *argv[]){
                 value = !value;
                 sleep(1);
             }
+            gpio_set_value(LED1,0);
+            gpio_set_value(LED2,0);
+            gpio_set_value(LED3,0);
+            gpio_set_value(LED4,0);
         }
         else if (mode.substr(0,3) == "LED"){
             unsigned int value;
             if(std::string(argv[2]) == "on"){
                 value = 1;
             }
-            else{
+            else if (std::string(argv[2]) == "off"){
                 value = 0;
             }
-            cout << "LED" << int(mode.at(3)-'1') << "is" << value << endl;
+            else{
+                cout << "undefine!!" << endl;
+                return 0;
+            }
+            cout << "LED" << int(mode.at(3)-'1') << " is " << value << endl;
             gpio_set_value(arr[int(mode.at(3)-'1')],value);
         }
         else{
