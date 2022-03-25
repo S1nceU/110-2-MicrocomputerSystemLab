@@ -24,8 +24,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer *cout = new QTimer();
-    int LEDswitch = 0;
-    int t = 0;
+    int LEDswitch,t = 0;
+    int che = 1;
 };
 
 #endif // MAINWINDOW_H

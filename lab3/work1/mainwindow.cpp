@@ -11,7 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
         LED_arr[i]->hide();
     }
     connect(cout, SIGNAL(timeout()), this, SLOT(update()));
-    printf("Be fine.");
     cout->start(1000);
 }
 
@@ -22,14 +21,20 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_switchbutton_clicked()
 {
+    che = 0;
     int cou = ui->input_text->text().toInt();
     t = cou*2;
+
+
+     printf("Be fine.");
+
+
     LEDswitch = 0;
 }
 void MainWindow::update(){
     QLabel *LED_arr[] = {ui->LED1,ui->LED2,ui->LED3,ui->LED4};
     printf("%d",t);
-    if(t == 0){
+    if(t == 0 && che == 0){
         for(int i = 0;i < 4;i++){
             LED_arr[i]->hide();
         }
@@ -37,6 +42,10 @@ void MainWindow::update(){
         ui->checkBox_2->setChecked(false);
         ui->checkBox_3->setChecked(false);
         ui->checkBox_4->setChecked(false);
+        che = 1;
+        return;
+    }
+    else if(t == 0 && che == 1){
         return;
     }
     else if(LEDswitch == 0){
