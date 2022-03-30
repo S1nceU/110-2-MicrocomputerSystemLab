@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <stdio.h>
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <unistd.h>
+using namespace std;
 namespace Ui {
 class MainWindow;
 }
@@ -14,6 +20,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    int gpio_set_value(unsigned int pin,unsigned value){
+        string filename = "/sys/class/gpio/gpio" + to_string(pin) + "/value";
+        fstream gpio;
+        gpio.open(filename,ios::out);
+        if(!gpio.is_open()){
+            return 0;
+        }
+        else{
+            gpio << value;
+            return 1;
+        }
+    }
 
 private slots:
 
