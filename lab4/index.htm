@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div style="width: 330px;" >
+            <h1>LED Control Panel</h1>
+                <input type="checkbox" name="LED1" id="LED1">LED1
+                <input type="checkbox" name="LED2" id="LED2">LED2<br>
+                <input type="checkbox" name="LED3" id="LED3">LED3
+                <input type="checkbox" name="LED4" id="LED4">LED4<br><br>
+                <input type="button" name="led_button" id="led_button" value="submit" onclick="LED_state()">
+                <input type="checkbox" name="on" id="on">ON
+                <input type="checkbox" name="off" id="off">OFF
+                
+                <div id="state" name="state">
+                </div>
+            <hr>
+
+            <h1>LED Switch Frequency</h1>
+                <input type="text" name="sh" id="sh"><br><br>
+                <input type="button" name="shine" id="shine" value="Mode_Shine" onclick="shine()">
+
+                <div id="shine_state" name="shine_state">
+                </div>
+        </div>
+    </body>
+    <script src="./main.js"></script>
+</html>
