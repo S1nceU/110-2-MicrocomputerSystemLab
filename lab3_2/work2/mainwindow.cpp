@@ -36,8 +36,8 @@ void MainWindow::on_switchbutton_clicked()
 {
 
     int progressBarValue = ui->progressBar->value();
-    cout->stop();
-    cout->start(1000 - 7 * progressBarValue);
+    //cout->stop();
+    cout->start(1000 - 10 * progressBarValue);
 }
 
 void MainWindow::update(){

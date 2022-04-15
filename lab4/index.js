@@ -14,7 +14,7 @@ app.get("/main.js",(req,res) => {
 
 function LEDshine(LED, power){
     let pro = require("child_process");
-    let process = pro.execFile('sudo', ['./tx2', LED, power]);
+    let process = pro.execFile('sudo', ['./lab2', LED, power]);
     process.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);
     });
@@ -31,21 +31,22 @@ app.post("/control",(req,res) => {
         LEDshine("LED3", get_data["LED3"]);
         LEDshine("LED4", get_data["LED4"]);
     }else{
-        for(var i = 0; i < get_data["shine"] * 2; i++){
-            if(i % 2 == 0){
-                LEDshine("LED1", "1");
-                LEDshine("LED2", "1");
-                LEDshine("LED3", "0");
-                LEDshine("LED4", "0");
-            }else{
-                LEDshine("LED1", "0");
-                LEDshine("LED2", "0");
-                LEDshine("LED3", "1");
-                LEDshine("LED4", "1");
-            }
-            let ChildProcess_ExecSync = require('child_process').execSync;
-            ChildProcess_ExecSync('sleep ' + 1);
-        }
+        LEDshine("Mode_shine",get_data["shine"]);
+        // for(var i = 0; i < get_data["shine"] * 2; i++){
+        //     if(i % 2 == 0){
+        //         LEDshine("LED1", "1");
+        //         LEDshine("LED2", "1");
+        //         LEDshine("LED3", "0");
+        //         LEDshine("LED4", "0");
+        //     }else{
+        //         LEDshine("LED1", "0");
+        //         LEDshine("LED2", "0");
+        //         LEDshine("LED3", "1");
+        //         LEDshine("LED4", "1");
+        //     }
+        //     let ChildProcess_ExecSync = require('child_process').execSync;
+        //     ChildProcess_ExecSync('sleep ' + 1);
+        // }
     }
     
 })

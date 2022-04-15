@@ -94,6 +94,7 @@ int main(int argc,char *argv[]){
             gpio_set_value(LED2,0);
             gpio_set_value(LED3,0);
             gpio_set_value(LED4,0);
+            cout << "shine_push" << endl;
         }
         else if (mode.substr(0,3) == "LED"){
             unsigned int value;

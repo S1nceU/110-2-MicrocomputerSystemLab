@@ -1,5 +1,5 @@
 function LED_state(){
-    var LED = ["OFF","OFF","OFF","OFF"];
+    var LED = ["off","off","off","off"];
     var l = [];
     l[0] = document.getElementById('LED1').checked;
     l[1] = document.getElementById('LED2').checked;
@@ -9,12 +9,12 @@ function LED_state(){
     for (var i=1;i<4;i++){
         if (document.getElementById('on').checked){
             if (l[i]){
-                LED[i] = "ON";
+                LED[i] = "on";
             }
         }
         else{
             if(l[i]){
-                LED[i] = "OFF";
+                LED[i] = "off";
             }
         }
     }
