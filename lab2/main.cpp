@@ -5,8 +5,8 @@
 #include <unistd.h>
 using namespace std;
 
-#define LED1 393
-#define LED2 389
+#define LED1 466
+#define LED2 392
 #define LED3 398
 #define LED4 427
 

@@ -1,0 +1,1 @@
+cmd_/home/s1nce/Desktop/code/lab6/2/demod.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/s1nce/Desktop/code/lab6/2/demod.ko /home/s1nce/Desktop/code/lab6/2/demod.o /home/s1nce/Desktop/code/lab6/2/demod.mod.o;  true
