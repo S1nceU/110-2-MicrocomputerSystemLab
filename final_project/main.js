@@ -190,7 +190,7 @@ function choose(){
         MODE_CHINESE : mode_ch,
         MODE : m
     };
-    emailjs.send('service_40f0im5', 'template_15470e6', templateParams)
+    emailjs.send('service_7k0vmo4', 'template_7dxr4d3', templateParams)
     .then(function(response) {
        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
@@ -238,7 +238,6 @@ function data(){
     }
 }
 function adc_scan(){
-    console.log(adc_condition);
     if(adc_condition < 200){
         document.getElementById("adc_scan").innerHTML=`白天模式`
     }
